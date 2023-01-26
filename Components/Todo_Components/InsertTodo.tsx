@@ -39,8 +39,6 @@ const InsertTodo = ({ isOpen, sendData }: Props) => {
       id: Date.now(),
     });
 
-    console.log(obj);
-
     if (obj.title && obj.date && obj.priority) {
       await sendData(obj);
 

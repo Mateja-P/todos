@@ -24,6 +24,7 @@ const SingleTodo = ({
   setDeletedData,
 }: Props) => {
   const [editable, setEditable] = useState<boolean>(false);
+  const [action, setAction] = useState<boolean>(false);
 
   const date = new Date(todo.date);
   const month = date.getMonth() + 1;
@@ -71,7 +72,50 @@ const SingleTodo = ({
               : `${month}.${day}.${year}`
             : 'Finshed'}
         </div>
-        <div>
+        <div className='hidden sm:flex flex-col relative'>
+          <div onClick={() => setAction(!action)}>
+            {todo.finished == false && (
+              <div>
+                <div className='h-[2px] w-[12px] bg-black'></div>
+                <div className='h-[2px] w-[12px] bg-black my-2'></div>
+                <div className='h-[2px] w-[12px] bg-black'></div>
+              </div>
+            )}
+          </div>
+          <div>
+            {todo.finished == false ? (
+              <div
+                className={`${
+                  action ? 'block' : 'hidden'
+                } absolute top-1/2 translate-y-[-50%] right-[20px] bg-[#fafafa] py-5 px-5 rounded-[10px] flex`}
+              >
+                <DeleteIcon
+                  onClick={() => deleteData(todo.id)}
+                  className='cursor-pointer hover:fill-red-700'
+                />
+                {editable ? (
+                  <CloseIcon
+                    className='cursor-pointer mx-5'
+                    onClick={() => setEditable(false)}
+                  />
+                ) : (
+                  <EditIcon
+                    className='mx-8 cursor-pointer hover:fill-gray-500 sm:mx-3'
+                    onClick={() => setEditable(true)}
+                  />
+                )}
+
+                <CheckIcon
+                  className='cursor-pointer hover:fill-green-700'
+                  onClick={() => isFinished(todo.id)}
+                />
+              </div>
+            ) : (
+              <CheckIcon className='cursor-pointer fill-green-700' />
+            )}
+          </div>
+        </div>
+        <div className='sm:hidden'>
           {todo.finished == false ? (
             editable == false && (
               <div>

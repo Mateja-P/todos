@@ -13,7 +13,7 @@ const Sidebar = ({ openMenu }: Props) => {
   const router = useRouter();
   const [insertLabel, setInsert] = useState<boolean>(false);
   const [label, setLabel] = useState<string>('');
-  const [labels, setLabels] = useState(['Projcets', 'Meetings']);
+  const [labels, setLabels] = useState(['Projects', 'Meetings']);
 
   const inputRef = useRef<HTMLInputElement>(null);
 

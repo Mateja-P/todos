@@ -36,6 +36,8 @@ const Todo = () => {
         );
         break;
     }
+
+    localStorage.clear();
   }, [tab, displayTodos]);
 
   const finishedTodo = (id: number) => {
