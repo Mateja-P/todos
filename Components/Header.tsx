@@ -6,7 +6,7 @@ const Header = () => {
         <div>
           <form>
             <input
-              className='p-1.5 placeholder:text-xs outline-0 w-80 sm:w-auto'
+              className='p-1.5 placeholder:text-xs outline-0 w-80 sm:w-1/2'
               placeholder='Search Todos'
             />
           </form>
