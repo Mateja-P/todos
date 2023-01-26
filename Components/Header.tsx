@@ -4,9 +4,9 @@ const Header = () => {
       <div className='flex justify-between w-full items-center'>
         <div className='text-white font-bold'>Logo</div>
         <div className='inline'>
-          <form>
+          <form className='inline'>
             <input
-              className='p-1.5 placeholder:text-xs outline-0 w-80 sm:w-1/2'
+              className='p-1.5 placeholder:text-xs outline-0 w-80 md:w-auto'
               placeholder='Search Todos'
             />
           </form>
